@@ -1,0 +1,17 @@
+<%= render 'shared/errors'  %>
+
+<form action="<%= target_url %>" method="post">
+    <input type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token  %>">
+      Username:
+    <input type="text"
+      name="user[username]"
+      value="<%= user.username unless user.nil? %>">
+      <br>
+      Password:
+    <input type="password" name="user[password]">
+      <br>
+    <%= button_to target_url == users_url ? "Sign Up" : "Sign In",
+        cats_url, method: :get %>
+</form>
